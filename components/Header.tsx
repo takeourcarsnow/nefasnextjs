@@ -9,8 +9,8 @@ function useScrollingTextEffects(ref: React.RefObject<HTMLElement>) {
     const el = ref.current;
     if (!el) return;
     
-    let flickerInterval: NodeJS.Timeout;
-    let brightnessInterval: NodeJS.Timeout;
+    let flickerInterval: ReturnType<typeof setInterval> | null = null;
+    let brightnessInterval: ReturnType<typeof setInterval> | null = null;
     
     const flickerFn = () => {
       if (document.hidden) return;
@@ -32,27 +32,27 @@ function useScrollingTextEffects(ref: React.RefObject<HTMLElement>) {
       }
     };
     
-    flickerInterval = setInterval(flickerFn, 500);
-    brightnessInterval = setInterval(brightnessFn, 1000);
+  flickerInterval = setInterval(flickerFn, 500);
+  brightnessInterval = setInterval(brightnessFn, 1000);
     
     const visibilityHandler = () => {
       if (document.hidden) {
-        clearInterval(flickerInterval);
-        clearInterval(brightnessInterval);
+        if (flickerInterval) clearInterval(flickerInterval);
+          if (brightnessInterval) clearInterval(brightnessInterval);
       } else {
-        flickerInterval = setInterval(flickerFn, 500);
-        brightnessInterval = setInterval(brightnessFn, 1000);
+  flickerInterval = setInterval(flickerFn, 500);
+  brightnessInterval = setInterval(brightnessFn, 1000);
       }
     };
     
     document.addEventListener('visibilitychange', visibilityHandler);
     
     return () => {
-      clearInterval(flickerInterval);
-      clearInterval(brightnessInterval);
+      if (flickerInterval) clearInterval(flickerInterval);
+      if (brightnessInterval) clearInterval(brightnessInterval);
       document.removeEventListener('visibilitychange', visibilityHandler);
     };
-  }, []);
+  }, [ref]);
 }
 
 // Simple glitch effect placeholder (original had complex logic)

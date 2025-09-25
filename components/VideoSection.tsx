@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import React from 'react';
 import { TerminalLines } from './sectionTerminalContent.tsx';
@@ -16,7 +17,7 @@ export const VideoSection: React.FC = () => {
     >
   <h2>&gt; video feed</h2>
       <TerminalLines sectionId="video-content" />
-      <p>a collection of moving pictures to rot your brain. i'll replace these with my own stuff eventually. probably.</p>
+  <p>a collection of moving pictures to rot your brain. i&apos;ll replace these with my own stuff eventually. probably.</p>
       {loading && <p>Loading...</p>}
       {error && <p style={{ color: 'red' }}>[ERROR] {error}</p>}
       <div className="grid-container">

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import type { PhotoItem } from '../types/content.ts';
@@ -15,12 +16,12 @@ export const ViewerModal: React.FC<ViewerModalProps> = ({ photos, index, onClose
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
   const [lastPan, setLastPan] = useState({ x: 0, y: 0 });
-  const [touchStart, setTouchStart] = useState({ x: 0, y: 0 });
+  const [touchStart, setTouchStart] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
   const imgRef = useRef<HTMLImageElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const photo = photos[index];
-  if (!photo) return null;
+  // Do not early-return here because hooks must be called unconditionally.
 
   const resetZoom = useCallback(() => {
     setZoom(1);
@@ -95,7 +96,7 @@ export const ViewerModal: React.FC<ViewerModalProps> = ({ photos, index, onClose
     }
   }, [isDragging, handleMouseMove, handleMouseUp]);
 
-  // Touch events for mobile swipe
+  // Touch events for mobile swipe -- hooks and handlers are declared unconditionally
   const handleTouchStart = useCallback((e: React.TouchEvent) => {
     if (e.touches.length === 1) {
       setTouchStart({ x: e.touches[0].clientX, y: e.touches[0].clientY });
@@ -107,22 +108,19 @@ export const ViewerModal: React.FC<ViewerModalProps> = ({ photos, index, onClose
       const touchEnd = { x: e.changedTouches[0].clientX, y: e.changedTouches[0].clientY };
       const deltaX = touchEnd.x - touchStart.x;
       const deltaY = Math.abs(touchEnd.y - touchStart.y);
-      
+
       // Only trigger swipe if horizontal movement is greater than vertical
       if (Math.abs(deltaX) > 50 && Math.abs(deltaX) > deltaY) {
-        if (deltaX > 0) {
-          goPrev();
-        } else {
-          goNext();
-        }
+        if (deltaX > 0) goPrev();
+        else goNext();
       }
     }
   }, [touchStart, goPrev, goNext]);
 
   // Click to zoom
-  const handleImageClick = useCallback((e: React.MouseEvent) => {
+  const handleImageClick = useCallback(() => {
     if (isDragging) return;
-    
+
     if (zoom === 1) {
       setZoom(2);
     } else {
@@ -150,6 +148,8 @@ export const ViewerModal: React.FC<ViewerModalProps> = ({ photos, index, onClose
     day: 'numeric' 
   }) : '';
   const tags = photo.tags?.map(tag => `#${tag}`).join(' ') || '';
+
+  if (!photo) return null;
 
   return (
     <div 

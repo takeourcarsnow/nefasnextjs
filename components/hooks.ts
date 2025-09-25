@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 export function useInterval(callback: () => void, delay: number) {
   useEffect(() => {
-    const id = setInterval(callback, delay);
+    const id: ReturnType<typeof setInterval> = setInterval(callback, delay);
     return () => clearInterval(id);
   }, [callback, delay]);
 }
@@ -16,9 +16,9 @@ export function useNow() {
 
 export function usePerformanceMonitor() {
   useEffect(() => {
-    if (typeof window === 'undefined' || !('performance' in window)) return;
-    
-    const observer = new PerformanceObserver((list) => {
+    if (typeof window === 'undefined' || !('performance' in window) || typeof PerformanceObserver === 'undefined') return;
+
+    const observer = new PerformanceObserver((list: PerformanceObserverEntryList) => {
       list.getEntries().forEach((entry) => {
         if (entry.entryType === 'navigation') {
           const navEntry = entry as PerformanceNavigationTiming;
@@ -29,14 +29,14 @@ export function usePerformanceMonitor() {
         }
       });
     });
-    
+
     observer.observe({ entryTypes: ['navigation', 'largest-contentful-paint'] });
-    
+
     return () => observer.disconnect();
   }, []);
 }
 
-export function useFetchJson<T = any>(url: string): { data: T | null; loading: boolean; error: string | null } {
+export function useFetchJson<T = unknown>(url: string): { data: T | null; loading: boolean; error: string | null } {
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -64,11 +64,15 @@ export function useFetchJson<T = any>(url: string): { data: T | null; loading: b
           setLoading(false); 
         } 
       })
-      .catch(e => { 
-        if (!cancelled && e.name !== 'AbortError') { 
-          setError(e.message); 
-          setLoading(false); 
-        } 
+      .catch((e: unknown) => { 
+        if (!cancelled) {
+          // if it's an AbortError the controller will have handled it
+          const err = e as Error;
+          if (err?.name !== 'AbortError') {
+            setError(err?.message ?? String(e));
+            setLoading(false);
+          }
+        }
       });
     
     return () => { 

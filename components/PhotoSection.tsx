@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import React, { useMemo, useState, useEffect } from 'react';
 import { TerminalLines } from './sectionTerminalContent.tsx';
@@ -105,7 +106,7 @@ export const PhotoSection: React.FC = () => {
               </div>
             </div>
           ))}
-          {flatPhotos.map((p: FlatPhoto, i: number) => (
+            {flatPhotos.map((p: FlatPhoto, i: number) => (
             <div key={p.image + i} className="grid-item photo-item" style={{ cursor: 'pointer' }} onClick={() => setViewerIndex(i)}>
               <LazyImage 
                 src={p.thumbnail || p.image} 
@@ -129,10 +130,10 @@ export const PhotoSection: React.FC = () => {
                 fontSize: '0.8em'
               }}>
                 <span className="photo-date" style={{ color: 'var(--secondary-color)' }}>
-                  {new Date((p as any).date || '2025-01-01').toLocaleDateString()}
+                  {new Date((p as unknown as { date?: string })?.date ?? '2025-01-01').toLocaleDateString()}
                 </span>
                 <span className="photo-tags" style={{ color: 'var(--accent-color)', fontFamily: 'var(--mono-font)' }}>
-                  {(p as any).tags?.map((tag: string) => `#${tag}`).join(' ') || '#photo'}
+                  {(Array.isArray((p as unknown as { tags?: string[] })?.tags) ? ((p as unknown as { tags?: string[] })?.tags!.map((tag: string) => `#${tag}`).join(' ')) : '#photo')}
                 </span>
               </div>
             </div>

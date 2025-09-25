@@ -63,7 +63,7 @@ export const MiscSection: React.FC = () => {
     >
   <h2>&gt; misc</h2>
       <TerminalLines sectionId="misc-content" />
-      <p>a digital shoebox for things that don't fit anywhere else. links, files, random thoughts. check back once in a while.</p>
+  <p>a digital shoebox for things that don&apos;t fit anywhere else. links, files, random thoughts. check back once in a while.</p>
       
       <AccordionSection title="&gt;&gt; interesting links">
         <div className="links-container">

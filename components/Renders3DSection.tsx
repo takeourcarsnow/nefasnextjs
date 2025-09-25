@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import React from 'react';
 import { TerminalLines } from './sectionTerminalContent.tsx';
@@ -16,7 +17,7 @@ export const Renders3DSection: React.FC = () => {
     >
   <h2>&gt; 3D stuff</h2>
       <TerminalLines sectionId="3d-content" />
-      <p>some abstract pixel statues i cooked up in blender, c4d, and houdini. it's mostly shiny spheres and particle nonsense. click to expand</p>
+  <p>some abstract pixel statues i cooked up in blender, c4d, and houdini. it&apos;s mostly shiny spheres and particle nonsense. click to expand</p>
       {loading && <p>Loading...</p>}
       {error && <p style={{ color: 'red' }}>[ERROR] {error}</p>}
       <div className="grid-container">

@@ -12,20 +12,11 @@ import { Renders3DSection } from './Renders3DSection.tsx';
 import { WebdevSection } from './WebdevSection.tsx';
 import { MiscSection } from './MiscSection.tsx';
 import { FooterTimestamp } from './FooterTimestamp.tsx';
-import { SectionProvider, useSection } from './SectionContext.tsx';
+import { SectionProvider } from './SectionContext.tsx';
 import { usePerformanceMonitor } from './hooks.ts';
 import { ErrorBoundary } from './ErrorBoundary.tsx';
 
-const Placeholder: React.FC<{ id: string; title: string; children?: React.ReactNode }> = ({ id, title, children }) => {
-  const { active } = useSection();
-  if (active !== id) return null;
-  return (
-    <div id={id} className="content-section">
-      <h2>{title}</h2>
-      {children}
-    </div>
-  );
-};
+// Placeholder removed (unused) to avoid lint warning
 
 const Inner: React.FC = () => {
   usePerformanceMonitor();

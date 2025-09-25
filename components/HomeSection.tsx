@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import React, { useEffect, useState } from 'react';
 import { TerminalLines } from './sectionTerminalContent.tsx';
@@ -18,7 +19,11 @@ const useLatest = <T,>(url: string, limit = 3) => {
       .then((items: T[]) => {
         if (cancelled) return;
         // naive date sort if possible
-        const sorted = [...items].sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  const hasDate = (x: unknown): x is { date?: string } => !!x && typeof (x as { date?: unknown }).date === 'string';
+        const sorted = [...items].sort((a, b) => {
+          if (hasDate(a) && hasDate(b)) return new Date(b.date!).getTime() - new Date(a.date!).getTime();
+          return 0;
+        });
         setState({ data: sorted.slice(0, limit), loading: false });
       })
       .catch(() => { if (!cancelled) setState({ data: [], loading: false }); });
@@ -43,20 +48,25 @@ export const HomeSection: React.FC = () => {
     >
       <TerminalLines sectionId="home-content" />
       <ContentBlock title="> latest web stuff" caption="building and hoping that it just works" onJump={() => setActive('webdev-content')}>
-        {webdev.loading ? <p>Loading...</p> : (
+        {webdev.loading ? (
+          <p>Loading...</p>
+        ) : (
           <div className="grid-container">
-            {webdev.data.map(p => (
-              <a key={p.title} href="#" className="grid-item home-post-item" onClick={(e) => { e.preventDefault(); setActive('webdev-content'); }}>
-                <img src={(p as any).image} alt={p.title} style={{ width: '100%', height: 120, objectFit: 'cover', marginBottom: 12, borderRadius: 6 }} />
-                <div>
-                  <p className="home-post-type">[WEBDEV]</p>
-                  <h4 className="home-post-title">{p.title}</h4>
-                </div>
-                <div>
-                  <p className="home-post-date">{new Date(p.date).toLocaleDateString()}</p>
-                </div>
-              </a>
-            ))}
+            {webdev.data.map((p, idx) => {
+              const obj = p as unknown as { image?: string; title?: string; date?: string };
+              return (
+                <a key={obj.title ?? idx} href="#" className="grid-item home-post-item" onClick={(e) => { e.preventDefault(); setActive('webdev-content'); }}>
+                  <img src={obj.image ?? ''} alt={obj.title ?? 'untitled'} style={{ width: '100%', height: 120, objectFit: 'cover', marginBottom: 12, borderRadius: 6 }} />
+                  <div>
+                    <p className="home-post-type">[WEBDEV]</p>
+                    <h4 className="home-post-title">{obj.title ?? 'untitled'}</h4>
+                  </div>
+                  <div>
+                    <p className="home-post-date">{obj.date ? new Date(obj.date).toLocaleDateString() : ''}</p>
+                  </div>
+                </a>
+              );
+            })}
           </div>
         )}
       </ContentBlock>
@@ -64,8 +74,8 @@ export const HomeSection: React.FC = () => {
         {photos.loading ? <p>Loading...</p> : (
           <div className="grid-container">
             {photos.data.map(p => {
-              if ((p as any).type === 'album') {
-                const a = p as any;
+              if ((p as unknown as { type?: string }).type === 'album') {
+                const a = p as unknown as { title: string; coverImage: string; date?: string; description?: string };
                 return (
                   <a key={a.title} href="#" className="grid-item home-post-item" onClick={(e) => { e.preventDefault(); setActive('photo-content'); }}>
                     <img src={a.coverImage} alt={a.title} style={{ width: '100%', height: 120, objectFit: 'cover', marginBottom: 12, borderRadius: 6 }} />
@@ -74,12 +84,12 @@ export const HomeSection: React.FC = () => {
                       <h4 className="home-post-title">{a.title}</h4>
                     </div>
                     <div>
-                      <p className="home-post-date">{new Date(a.date).toLocaleDateString()}</p>
+                      <p className="home-post-date">{a.date ? new Date(a.date).toLocaleDateString() : ''}</p>
                     </div>
                   </a>
                 );
               }
-              const photo = p as any;
+              const photo = p as unknown as { title: string; thumbnail?: string; date?: string; description?: string };
               return (
                 <a key={photo.title} href="#" className="grid-item home-post-item" onClick={(e) => { e.preventDefault(); setActive('photo-content'); }}>
                   <img src={photo.thumbnail} alt={photo.title} style={{ width: '100%', height: 120, objectFit: 'cover', marginBottom: 12, borderRadius: 6 }} />
@@ -88,7 +98,7 @@ export const HomeSection: React.FC = () => {
                     <h4 className="home-post-title">{photo.title}</h4>
                   </div>
                   <div>
-                    <p className="home-post-date">{new Date(photo.date).toLocaleDateString()}</p>
+                    <p className="home-post-date">{photo.date ? new Date(photo.date).toLocaleDateString() : ''}</p>
                   </div>
                 </a>
               );
@@ -114,7 +124,7 @@ export const HomeSection: React.FC = () => {
           </div>
         )}
       </ContentBlock>
-      <ContentBlock title="> latest videos" caption="a collection of moving pictures. i'll replace these with my own stuff eventually. probably." onJump={() => setActive('video-content')}>
+  <ContentBlock title="> latest videos" caption="a collection of moving pictures. i&apos;ll replace these with my own stuff eventually. probably." onJump={() => setActive('video-content')}>
         {videos.loading ? <p>Loading...</p> : (
           <div className="grid-container">
             {videos.data.map(v => (

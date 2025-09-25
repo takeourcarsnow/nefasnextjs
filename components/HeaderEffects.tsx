@@ -11,20 +11,28 @@ export const HeaderEffects: React.FC = () => {
   const rightRef = useRef<HTMLSpanElement | null>(null);
   const titleRef = useRef<HTMLSpanElement | null>(null);
   useEffect(() => {
-    let frame = 0; let interval: any;
+    let frame = 0;
+    let intervalId: ReturnType<typeof setInterval> | null = null;
     const run = () => {
       if (document.hidden) return;
       if (leftRef.current) leftRef.current.textContent = leftFrames[frame];
       if (rightRef.current) rightRef.current.textContent = rightFrames[frame];
       frame = (frame + 1) % leftFrames.length;
     };
-    interval = setInterval(run, 800);
-    const vis = () => { if (document.hidden) clearInterval(interval); else interval = setInterval(run, 800); };
+    intervalId = setInterval(run, 800);
+    const vis = () => {
+      if (document.hidden) {
+        if (intervalId) { clearInterval(intervalId); intervalId = null; }
+      } else if (!intervalId) {
+        intervalId = setInterval(run, 800);
+      }
+    };
     document.addEventListener('visibilitychange', vis);
-    return () => { clearInterval(interval); document.removeEventListener('visibilitychange', vis); };
+    return () => { if (intervalId) clearInterval(intervalId); document.removeEventListener('visibilitychange', vis); };
   }, []);
   useEffect(() => {
-    let timeout: any; let running = true;
+    let timeoutId: ReturnType<typeof setTimeout> | null = null;
+    let running = true;
     const glitch = () => {
       if (!running || document.hidden) return;
       if (Math.random() < 0.5 && titleRef.current) {
@@ -39,12 +47,15 @@ export const HeaderEffects: React.FC = () => {
       } else if (titleRef.current) {
         titleRef.current.textContent = originalText;
       }
-      timeout = setTimeout(glitch, 600 + Math.random() * 600);
+      timeoutId = setTimeout(glitch, 600 + Math.random() * 600);
     };
     glitch();
-    const vis = () => { if (document.hidden) { running = false; clearTimeout(timeout);} else { if (!running) { running = true; glitch(); } } };
+    const vis = () => {
+      if (document.hidden) { running = false; if (timeoutId) { clearTimeout(timeoutId); timeoutId = null; } }
+      else { if (!running) { running = true; glitch(); } }
+    };
     document.addEventListener('visibilitychange', vis);
-    return () => { running = false; clearTimeout(timeout); document.removeEventListener('visibilitychange', vis); };
+    return () => { running = false; if (timeoutId) clearTimeout(timeoutId); document.removeEventListener('visibilitychange', vis); };
   }, []);
   return (
     <span>
