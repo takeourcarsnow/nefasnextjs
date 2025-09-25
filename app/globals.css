@@ -1,0 +1,28 @@
+/* Global styles migrated from legacy site. TODO: merge individual CSS files progressively. */
+@import url('/main.css');
+@import url('/css/photo-modal.css');
+@import url('/css/animations.css');
+@import url('/css/base.css');
+@import url('/css/blog-animations.css');
+@import url('/css/blog.css');
+@import url('/css/effects.css');
+@import url('/css/footer.css');
+@import url('/css/grid.css');
+@import url('/css/header.css');
+@import url('/css/layout.css');
+@import url('/css/links.css');
+@import url('/css/misc-accordion.css');
+@import url('/css/mobile-nav-fix.css');
+@import url('/css/modal.css');
+@import url('/css/navigation.css');
+@import url('/css/photo-modal.css');
+@import url('/css/preloader-spinner.css');
+@import url('/css/preloader.css');
+@import url('/css/responsive.css');
+@import url('/css/sections.css');
+@import url('/css/terminal.css');
+@import url('/css/variables.css');
+@import url('/css/winamp.css');
+
+html, body { height: 100%; }
+body { margin: 0; }

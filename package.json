@@ -1,0 +1,52 @@
+{
+  "name": "nefas-tv",
+  "version": "1.0.0",
+  "description": "A vaporwave-inspired personal website with retro aesthetics and interactive elements",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "generate": "node generate-content.cjs",
+    "playlist": "node generate-playlist.cjs",
+    "thumbnails": "node generate-thumbnails-global.cjs"
+  },
+  "keywords": [
+    "vaporwave",
+    "retro",
+    "portfolio",
+    "personal-website",
+    "interactive",
+    "terminal",
+    "aesthetic"
+  ],
+  "author": "nefas",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "@types/react": "^18.2.64",
+    "@types/react-dom": "^18.2.21",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.2.11",
+    "html-validate": "^8.15.0",
+    "serve": "^14.2.1",
+    "typescript": "^5.4.5"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.53.0",
+    "next": "^14.2.11",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sharp": "^0.34.3"
+  }
+}
