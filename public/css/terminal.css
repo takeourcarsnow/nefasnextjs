@@ -14,8 +14,8 @@
     position: relative;
     width: 100%;
     box-sizing: border-box;
-    margin-bottom: 2rem;
-    line-height: 1.4;
+    margin-bottom: 1.2rem;
+    line-height: 1.1; /* tighter by default */
 }
 
 /* Combined empty state handling */
@@ -29,8 +29,9 @@
 
 /* Optimized terminal line styling */
 .terminal-line {
-    margin: 0.2em 0;
-    line-height: 1.35;
+    margin: 0; /* remove vertical margins to avoid extra gaps */
+    padding: 0.06em 0; /* tiny vertical padding for minimal separation */
+    line-height: 1.15;
     white-space: pre-wrap;
     word-spacing: normal;
 }
@@ -52,11 +53,12 @@
 }
 
 /* Blog terminal - extends base with specific overrides */
+/* Blog terminal uses the same tight spacing as main terminal */
 #blog-terminal-output {
     background: transparent;
-    padding: 1.5rem;
+    padding: 1rem;
     border: none;
-    line-height: 2.6; /* Even more gap */
+    line-height: 1.1;
 }
 
 /* Reset spacing for blog terminal content */
@@ -68,6 +70,7 @@
     line-height: inherit;
 }
 #blog-terminal-output .terminal-line {
-    margin-bottom: 0.3em !important; /* Small gap */
-    line-height: 1.3 !important;
+    margin: 0 !important;
+    padding: 0.06em 0 !important;
+    line-height: 1.15 !important;
 }

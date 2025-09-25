@@ -20,6 +20,16 @@ import { ErrorBoundary } from './ErrorBoundary.tsx';
 
 const Inner: React.FC = () => {
   usePerformanceMonitor();
+  React.useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      const tgt = e.target as HTMLElement | null;
+      if (tgt) {
+        console.log('[LayoutShell] document click on', tgt.tagName, tgt.className, tgt.id);
+      }
+    };
+    document.addEventListener('click', handler, true);
+    return () => document.removeEventListener('click', handler, true);
+  }, []);
   
   return (
     <>

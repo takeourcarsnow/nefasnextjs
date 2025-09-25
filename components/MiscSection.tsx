@@ -68,28 +68,28 @@ export const MiscSection: React.FC = () => {
       <AccordionSection title="&gt;&gt; interesting links">
         <div className="links-container">
           {links.loading && <p>Loading links...</p>}
-          {links.data?.map((l: LinkItem) => <p key={l.url}><a href={l.url} target="_blank" rel="noopener noreferrer">{l.title}</a></p>)}
+          {links.data?.map((l: LinkItem, i: number) => <p key={l.url ?? l.title ?? i}><a href={l.url} target="_blank" rel="noopener noreferrer">{l.title}</a></p>)}
         </div>
       </AccordionSection>
       
       <AccordionSection title="&gt;&gt; random thoughts">
         <div className="misc-thoughts">
           {thoughts.loading && <p>Loading thoughts...</p>}
-          {thoughts.data?.map((t: Thought, i: number) => <p key={i}>{t.text}</p>)}
+          {thoughts.data?.map((t: Thought, i: number) => <p key={(t.date as string) ?? i}>{t.text}</p>)}
         </div>
       </AccordionSection>
       
       <AccordionSection title="&gt;&gt; digital artifacts">
         <div className="artifacts-list">
           {artifacts.loading && <p>Loading artifacts...</p>}
-          {artifacts.data?.map((a: Artifact) => <p key={a.url}><a href={a.url} download>{a.name}</a></p>)}
+          {artifacts.data?.map((a: Artifact, i: number) => <p key={a.url ?? a.name ?? i}><a href={a.url} download>{a.name}</a></p>)}
         </div>
       </AccordionSection>
       
       <AccordionSection title="&gt;&gt; status updates">
         <div className="status-log">
           {status.loading && <p>Loading status...</p>}
-          {status.data?.map((s: StatusItem) => <p key={s.date}>{s.date}: {s.message}</p>)}
+          {status.data?.map((s: StatusItem, i: number) => <p key={s.date ?? i}>{s.date}: {s.message}</p>)}
         </div>
       </AccordionSection>
     </div>

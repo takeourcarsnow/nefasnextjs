@@ -82,9 +82,11 @@ export const BlogSection: React.FC = () => {
   }, []);
 
   const toggle = useCallback((title: string) => {
+    console.log('[BlogSection] toggle called for', title);
     setExpanded(prev => {
       const next = new Set(prev);
       if (next.has(title)) next.delete(title); else next.add(title);
+      console.log('[BlogSection] expanded now', [...next]);
       return next;
     });
   }, []);
@@ -98,16 +100,24 @@ export const BlogSection: React.FC = () => {
       <div ref={terminalRef} id="blog-terminal-output" className="terminal-output" />
       {terminalDone && (
         <div style={{ marginTop: 24 }}>
-          {posts.map(p => {
+          {posts.map((p, idx) => {
             const isOpen = expanded.has(p.title);
             const contentArr = p.content[lang] || p.content.en;
             return (
-              <div key={p.id} className="blog-snippet" style={{ marginBottom: 24 }}>
+              <div key={p.id ?? p.title ?? idx} className="blog-snippet" style={{ marginBottom: 24 }}>
                 <div className="blog-snippet-header" style={{ cursor: 'pointer' }} onClick={() => toggle(p.title)}>
                   <h3>&gt; {p.title}</h3>
                   <span className="blog-date">{new Date(p.date).toLocaleDateString()}</span>{' '}
                   <span className="blog-tags">{p.tags.map(t => <span key={t} className="blog-tag">{t}</span>)}</span>{' '}
-                  <span className="blog-toggle">{isOpen ? '[ ...read less ]' : '[ read more... ]'}</span>
+                  <button
+                    className="blog-toggle"
+                    aria-expanded={isOpen}
+                    onClick={(e) => { e.stopPropagation(); console.log('[BlogSection] button clicked', p.title); toggle(p.title); }}
+                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.stopPropagation(); toggle(p.title); } }}
+                    type="button"
+                  >
+                    {isOpen ? '[ ...read less ]' : '[ read more... ]'}
+                  </button>
                 </div>
                 {isOpen && (
                   <div className="blog-full-content expanded">
@@ -115,9 +125,13 @@ export const BlogSection: React.FC = () => {
                       <button className={`blog-lang-btn ${lang === 'en' ? 'active' : ''}`} onClick={() => setLang('en')}>English</button>
                       <button className={`blog-lang-btn ${lang === 'lt' ? 'active' : ''}`} onClick={() => setLang('lt')}>Lietuviškai</button>
                     </div>
-                    <div className="blog-content-text">
-                      {contentArr.map((para, i) => <p key={i}>{para}</p>)}
-                    </div>
+                      <div className="blog-content-text">
+                        {contentArr.map((para, i) => {
+                          // use paragraph content + index as a stable-ish key
+                          const k = (typeof para === 'string' ? para : JSON.stringify(para)).slice(0, 40) + '::' + i;
+                          return <p key={k}>{para}</p>;
+                        })}
+                      </div>
                   </div>
                 )}
               </div>

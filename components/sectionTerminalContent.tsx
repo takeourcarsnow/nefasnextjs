@@ -168,10 +168,9 @@ export const useTypewriter = (container: React.RefObject<HTMLDivElement>, lines:
     (async () => {
       for (const line of lines) {
         if (cancelled) return;
+        // Skip rendering completely for empty lines to avoid adding blank gaps.
+        // We still respect the configured delay but do not insert any DOM node.
         if (!line.text) {
-          const spacer = document.createElement('div');
-          spacer.innerHTML = '&nbsp;';
-          el.appendChild(spacer);
           await new Promise(r => setTimeout(r, line.delay));
           continue;
         }

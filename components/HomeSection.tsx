@@ -53,9 +53,10 @@ export const HomeSection: React.FC = () => {
         ) : (
           <div className="grid-container">
             {webdev.data.map((p, idx) => {
-              const obj = p as unknown as { image?: string; title?: string; date?: string };
+              const obj = p as unknown as { id?: string; image?: string; title?: string; date?: string };
+              const key = obj.id ?? obj.title ?? idx;
               return (
-                <a key={obj.title ?? idx} href="#" className="grid-item home-post-item" onClick={(e) => { e.preventDefault(); setActive('webdev-content'); }}>
+                <a key={key} href="#" className="grid-item home-post-item" onClick={(e) => { e.preventDefault(); setActive('webdev-content'); }}>
                   <img src={obj.image ?? ''} alt={obj.title ?? 'untitled'} style={{ width: '100%', height: 120, objectFit: 'cover', marginBottom: 12, borderRadius: 6 }} />
                   <div>
                     <p className="home-post-type">[WEBDEV]</p>
@@ -73,11 +74,12 @@ export const HomeSection: React.FC = () => {
       <ContentBlock title="> fresh photos" caption="megapixels and emulsion" onJump={() => setActive('photo-content')}>
         {photos.loading ? <p>Loading...</p> : (
           <div className="grid-container">
-            {photos.data.map(p => {
+            {photos.data.map((p, idx) => {
               if ((p as unknown as { type?: string }).type === 'album') {
-                const a = p as unknown as { title: string; coverImage: string; date?: string; description?: string };
+                const a = p as unknown as { title?: string; coverImage?: string; date?: string; description?: string };
+                const key = a.title ?? a.coverImage ?? idx;
                 return (
-                  <a key={a.title} href="#" className="grid-item home-post-item" onClick={(e) => { e.preventDefault(); setActive('photo-content'); }}>
+                  <a key={key} href="#" className="grid-item home-post-item" onClick={(e) => { e.preventDefault(); setActive('photo-content'); }}>
                     <img src={a.coverImage} alt={a.title} style={{ width: '100%', height: 120, objectFit: 'cover', marginBottom: 12, borderRadius: 6 }} />
                     <div>
                       <p className="home-post-type">[ALBUM]</p>
@@ -89,9 +91,9 @@ export const HomeSection: React.FC = () => {
                   </a>
                 );
               }
-              const photo = p as unknown as { title: string; thumbnail?: string; date?: string; description?: string };
+              const photo = p as unknown as { title?: string; thumbnail?: string; date?: string; description?: string };
               return (
-                <a key={photo.title} href="#" className="grid-item home-post-item" onClick={(e) => { e.preventDefault(); setActive('photo-content'); }}>
+                <a key={photo.title ?? photo.thumbnail ?? idx} href="#" className="grid-item home-post-item" onClick={(e) => { e.preventDefault(); setActive('photo-content'); }}>
                   <img src={photo.thumbnail} alt={photo.title} style={{ width: '100%', height: 120, objectFit: 'cover', marginBottom: 12, borderRadius: 6 }} />
                   <div>
                     <p className="home-post-type">[PHOTO]</p>
@@ -109,8 +111,8 @@ export const HomeSection: React.FC = () => {
       <ContentBlock title="> new renders" caption="fresh cgi right off the gpu" onJump={() => setActive('3d-content')}>
         {renders3d.loading ? <p>Loading...</p> : (
           <div className="grid-container">
-            {renders3d.data.map(r => (
-              <a key={r.title} href="#" className="grid-item home-post-item" onClick={(e) => { e.preventDefault(); setActive('3d-content'); }}>
+            {renders3d.data.map((r, idx) => (
+              <a key={(r as any).id ?? r.title ?? r.thumbnail ?? idx} href="#" className="grid-item home-post-item" onClick={(e) => { e.preventDefault(); setActive('3d-content'); }}>
                 <img src={r.thumbnail} alt={r.title} style={{ width: '100%', height: 120, objectFit: 'cover', marginBottom: 12, borderRadius: 6 }} />
                 <div>
                   <p className="home-post-type">[3D]</p>
@@ -127,8 +129,8 @@ export const HomeSection: React.FC = () => {
   <ContentBlock title="> latest videos" caption="a collection of moving pictures. i&apos;ll replace these with my own stuff eventually. probably." onJump={() => setActive('video-content')}>
         {videos.loading ? <p>Loading...</p> : (
           <div className="grid-container">
-            {videos.data.map(v => (
-              <a key={v.title} href="#" className="grid-item home-post-item" onClick={(e) => { e.preventDefault(); setActive('video-content'); }}>
+            {videos.data.map((v, idx) => (
+              <a key={(v as any).id ?? v.title ?? v.thumbnail ?? idx} href="#" className="grid-item home-post-item" onClick={(e) => { e.preventDefault(); setActive('video-content'); }}>
                 <img src={v.thumbnail} alt={v.title} style={{ width: '100%', height: 120, objectFit: 'cover', marginBottom: 12, borderRadius: 6 }} />
                 <div>
                   <p className="home-post-type">[VIDEO]</p>
@@ -145,8 +147,8 @@ export const HomeSection: React.FC = () => {
       <ContentBlock title="> recent blogs" caption="fresh thoughts for your brain" onJump={() => setActive('blog-content')}>
         {blogs.loading ? <p>Loading...</p> : (
           <div className="grid-container">
-            {blogs.data.map(b => (
-              <a key={b.id} href="#" className="grid-item home-post-item" onClick={(e) => { e.preventDefault(); setActive('blog-content'); }}>
+            {blogs.data.map((b, idx) => (
+              <a key={b.id ?? b.title ?? idx} href="#" className="grid-item home-post-item" onClick={(e) => { e.preventDefault(); setActive('blog-content'); }}>
                 <div>
                   <p className="home-post-type">[BLOG]</p>
                   <h4 className="home-post-title">{b.title}</h4>
