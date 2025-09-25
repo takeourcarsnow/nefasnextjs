@@ -69,6 +69,8 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
 
   return (
     <div
+      id="preloader"
+      className="preloader"
       style={{
         position: 'fixed',
         inset: 0,
@@ -82,7 +84,13 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
         padding: '20px'
       }}
     >
-      <pre style={{ fontSize: '18px', lineHeight: 1.15 }}>{preloaderFrames[frameIndex]}</pre>
+      <div className="preloader-inner">
+        <div className="preloader-logo-wrapper">
+          {/* Use public folder path; Next serves files in /public at root */}
+          <img src="/images/logo.svg" alt="nefas.tv logo" className="preloader-logo" />
+        </div>
+        <pre id="preloader-text" style={{ fontSize: '18px', lineHeight: 1.15 }}>{preloaderFrames[frameIndex]}</pre>
+      </div>
     </div>
   );
 };
