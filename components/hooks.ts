@@ -30,7 +30,19 @@ export function usePerformanceMonitor() {
       });
     });
 
-    observer.observe({ entryTypes: ['navigation', 'largest-contentful-paint'] });
+    try {
+      // PerformanceObserver.observe accepts an options object for entryTypes
+      // defensively ensure observe exists and call with a plain object
+      if (typeof observer.observe === 'function') {
+        observer.observe({ entryTypes: ['navigation', 'largest-contentful-paint'] });
+      } else {
+        // eslint-disable-next-line no-console
+        console.warn('PerformanceObserver.observe is not a function on this platform');
+      }
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.error('PerformanceObserver.observe failed', err);
+    }
 
     return () => observer.disconnect();
   }, []);

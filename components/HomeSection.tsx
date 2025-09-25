@@ -111,8 +111,10 @@ export const HomeSection: React.FC = () => {
       <ContentBlock title="> new renders" caption="fresh cgi right off the gpu" onJump={() => setActive('3d-content')}>
         {renders3d.loading ? <p>Loading...</p> : (
           <div className="grid-container">
-            {renders3d.data.map((r, idx) => (
-              <a key={(r as any).id ?? r.title ?? r.thumbnail ?? idx} href="#" className="grid-item home-post-item" onClick={(e) => { e.preventDefault(); setActive('3d-content'); }}>
+            {renders3d.data.map((r, idx) => {
+              const rKey = ((r as unknown as { id?: string }).id) ?? r.title ?? r.thumbnail ?? idx;
+              return (
+              <a key={rKey} href="#" className="grid-item home-post-item" onClick={(e) => { e.preventDefault(); setActive('3d-content'); }}>
                 <img src={r.thumbnail} alt={r.title} style={{ width: '100%', height: 120, objectFit: 'cover', marginBottom: 12, borderRadius: 6 }} />
                 <div>
                   <p className="home-post-type">[3D]</p>
@@ -122,15 +124,17 @@ export const HomeSection: React.FC = () => {
                   <p className="home-post-date">{new Date(r.date).toLocaleDateString()}</p>
                 </div>
               </a>
-            ))}
+            )})}
           </div>
         )}
       </ContentBlock>
   <ContentBlock title="> latest videos" caption="a collection of moving pictures. i&apos;ll replace these with my own stuff eventually. probably." onJump={() => setActive('video-content')}>
         {videos.loading ? <p>Loading...</p> : (
           <div className="grid-container">
-            {videos.data.map((v, idx) => (
-              <a key={(v as any).id ?? v.title ?? v.thumbnail ?? idx} href="#" className="grid-item home-post-item" onClick={(e) => { e.preventDefault(); setActive('video-content'); }}>
+            {videos.data.map((v, idx) => {
+              const vKey = ((v as unknown as { id?: string }).id) ?? v.title ?? v.thumbnail ?? idx;
+              return (
+              <a key={vKey} href="#" className="grid-item home-post-item" onClick={(e) => { e.preventDefault(); setActive('video-content'); }}>
                 <img src={v.thumbnail} alt={v.title} style={{ width: '100%', height: 120, objectFit: 'cover', marginBottom: 12, borderRadius: 6 }} />
                 <div>
                   <p className="home-post-type">[VIDEO]</p>
@@ -140,7 +144,7 @@ export const HomeSection: React.FC = () => {
                   <p className="home-post-date">{new Date(v.date).toLocaleDateString()}</p>
                 </div>
               </a>
-            ))}
+            )})}
           </div>
         )}
       </ContentBlock>

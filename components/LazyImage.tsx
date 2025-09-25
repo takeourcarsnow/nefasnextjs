@@ -14,7 +14,7 @@ export const LazyImage: React.FC<LazyImageProps> = ({ src, alt, className, style
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
   const [inView, setInView] = useState(false);
-  const imgRef = useRef<HTMLImageElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -27,8 +27,15 @@ export const LazyImage: React.FC<LazyImageProps> = ({ src, alt, className, style
       { threshold: 0.1, rootMargin: '50px' }
     );
 
-    if (imgRef.current) {
-      observer.observe(imgRef.current);
+    if (containerRef.current && typeof observer.observe === 'function') {
+      try {
+        observer.observe(containerRef.current);
+      } catch (err) {
+        // defensive: if observe fails don't break the component
+        // log for debugging in dev tools
+        // eslint-disable-next-line no-console
+        console.error('IntersectionObserver.observe failed', err, containerRef.current);
+      }
     }
 
     return () => observer.disconnect();
@@ -45,7 +52,7 @@ export const LazyImage: React.FC<LazyImageProps> = ({ src, alt, className, style
 
   return (
     <div
-      ref={imgRef}
+      ref={containerRef}
       className={className}
       style={{
         ...style,
@@ -53,7 +60,7 @@ export const LazyImage: React.FC<LazyImageProps> = ({ src, alt, className, style
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        minHeight: style?.height || 200,
+          minHeight: style?.height || 200,
       }}
       onClick={onClick}
     >
