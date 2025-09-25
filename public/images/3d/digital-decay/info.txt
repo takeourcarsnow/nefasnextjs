@@ -1,0 +1,4 @@
+title: Wired
+description: some houdini experiments
+date: 2025-07-27
+tags: 3d, houdini, abstract, glitch

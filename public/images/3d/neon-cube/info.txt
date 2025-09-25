@@ -1,0 +1,4 @@
+title: Waves
+description: classic c4d displacement action
+date: 2025-08-01
+tags: 3d, render, c4d , abstract
