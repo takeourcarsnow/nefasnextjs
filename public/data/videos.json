@@ -1,0 +1,29 @@
+[
+  {
+    "id": "video1",
+    "title": "How To Waste 10 Hours In After Effects",
+    "description": "A journey through digital creation and probably questionable life choices",
+    "embedId": "jfKfPfyJRdk",
+    "thumbnail": "https://img.youtube.com/vi/jfKfPfyJRdk/maxresdefault.jpg",
+    "date": "2025-08-02",
+    "tags": ["video", "after-effects", "tutorial"]
+  },
+  {
+    "id": "video2", 
+    "title": "Lofi Hip Hop Radio But It's Just Dial-Up Sounds",
+    "description": "The perfect soundtrack for your existential crisis",
+    "embedId": "jfKfPfyJRdk",
+    "thumbnail": "https://img.youtube.com/vi/jfKfPfyJRdk/maxresdefault.jpg",
+    "date": "2025-07-29",
+    "tags": ["video", "lofi", "nostalgia"]
+  },
+  {
+    "id": "video3",
+    "title": "Vaporwave Visuals For Your Broken Dreams",
+    "description": "A e s t h e t i c content for the digital void",
+    "embedId": "jfKfPfyJRdk",
+    "thumbnail": "https://img.youtube.com/vi/jfKfPfyJRdk/maxresdefault.jpg",
+    "date": "2025-07-26",
+    "tags": ["video", "vaporwave", "aesthetics"]
+  }
+]

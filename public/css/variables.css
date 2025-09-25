@@ -1,0 +1,12 @@
+/* --- [ CONFIG & VARIABLES ] --- */
+:root {
+    --main-color: #00ff9d;
+    --violet-color: #c77dff;
+    --violet-glow: #c77dff44;
+    --glow-color: rgba(0, 255, 157, 0.5);
+    --bg-color: #0a0a0a;
+    --secondary-color: #ff00ff;
+    --secondary-glow: rgba(255, 0, 255, 0.4);
+    --border-color: #333;
+    --font: 'VT323', monospace;
+}

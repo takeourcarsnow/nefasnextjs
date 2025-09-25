@@ -1,0 +1,217 @@
+[
+  {
+    "type": "album",
+    "id": "plants & macro",
+    "title": "Plants & Macro",
+    "description": "getting real close to the tiny things",
+    "coverImage": "images/photos/plants & macro/1 (2).jpg",
+    "date": "2025-08-03",
+    "tags": [
+      "photography",
+      "macro",
+      "makro"
+    ],
+    "photos": [
+      {
+        "id": "plants & macro_1",
+        "title": "Plants & Macro #1",
+        "description": "Photo 1 from Plants & Macro",
+        "image": "images/photos/plants & macro/1 (2).jpg",
+        "thumbnail": "images/photos/plants & macro/1 (2).jpg"
+      },
+      {
+        "id": "plants & macro_2",
+        "title": "Plants & Macro #2",
+        "description": "Photo 2 from Plants & Macro",
+        "image": "images/photos/plants & macro/1.jpg",
+        "thumbnail": "images/photos/plants & macro/1.jpg"
+      },
+      {
+        "id": "plants & macro_3",
+        "title": "Plants & Macro #3",
+        "description": "Photo 3 from Plants & Macro",
+        "image": "images/photos/plants & macro/2.jpg",
+        "thumbnail": "images/photos/plants & macro/2.jpg"
+      },
+      {
+        "id": "plants & macro_4",
+        "title": "Plants & Macro #4",
+        "description": "Photo 4 from Plants & Macro",
+        "image": "images/photos/plants & macro/3.jpg",
+        "thumbnail": "images/photos/plants & macro/3.jpg"
+      }
+    ]
+  },
+  {
+    "type": "album",
+    "id": "animals",
+    "title": "Animals",
+    "description": "all the furry friends I meet",
+    "coverImage": "images/photos/animals/2.jpg",
+    "date": "2025-08-01",
+    "tags": [
+      "photography",
+      "urban",
+      "street"
+    ],
+    "photos": [
+      {
+        "id": "animals_1",
+        "title": "Animals #1",
+        "description": "Photo 1 from Animals",
+        "image": "images/photos/animals/2.jpg",
+        "thumbnail": "images/photos/animals/2.jpg"
+      },
+      {
+        "id": "animals_2",
+        "title": "Animals #2",
+        "description": "Photo 2 from Animals",
+        "image": "images/photos/animals/nefotografija_1483442253_1419538969536613264_1541845420.jpg",
+        "thumbnail": "images/photos/animals/nefotografija_1483442253_1419538969536613264_1541845420.jpg"
+      },
+      {
+        "id": "animals_3",
+        "title": "Animals #3",
+        "description": "Photo 3 from Animals",
+        "image": "images/photos/animals/nefotografija_1486393724_1444297704616116343_1541845420.jpg",
+        "thumbnail": "images/photos/animals/nefotografija_1486393724_1444297704616116343_1541845420.jpg"
+      },
+      {
+        "id": "animals_4",
+        "title": "Animals #4",
+        "description": "Photo 4 from Animals",
+        "image": "images/photos/animals/nefotografija_1741942713_3587997993882237331_1541845420.jpg",
+        "thumbnail": "images/photos/animals/nefotografija_1741942713_3587997993882237331_1541845420.jpg"
+      }
+    ]
+  },
+  {
+    "type": "album",
+    "id": "events",
+    "title": "Events",
+    "description": "local shows & local vibes",
+    "coverImage": "images/photos/events/1.jpg",
+    "date": "2025-08-01",
+    "tags": [
+      "photography",
+      "urban",
+      "street"
+    ],
+    "photos": [
+      {
+        "id": "events_1",
+        "title": "Events #1",
+        "description": "Photo 1 from Events",
+        "image": "images/photos/events/1.jpg",
+        "thumbnail": "images/photos/events/1.jpg"
+      },
+      {
+        "id": "events_2",
+        "title": "Events #2",
+        "description": "Photo 2 from Events",
+        "image": "images/photos/events/512679581_10237574371409192_2148918100531544591_n.jpg",
+        "thumbnail": "images/photos/events/512679581_10237574371409192_2148918100531544591_n.jpg"
+      },
+      {
+        "id": "events_3",
+        "title": "Events #3",
+        "description": "Photo 3 from Events",
+        "image": "images/photos/events/513891914_10237574373329240_2399497415240785302_n.jpg",
+        "thumbnail": "images/photos/events/513891914_10237574373329240_2399497415240785302_n.jpg"
+      }
+    ]
+  },
+  {
+    "type": "album",
+    "id": "panoramic",
+    "title": "Panoramic",
+    "description": "big shots of wide open spaces",
+    "coverImage": "images/photos/panoramic/nefotografija_1654170319_2851709785253661388_1541845420.jpg",
+    "date": "2025-08-01",
+    "tags": [
+      "photography",
+      "urban",
+      "street"
+    ],
+    "photos": [
+      {
+        "id": "panoramic_1",
+        "title": "Panoramic #1",
+        "description": "Photo 1 from Panoramic",
+        "image": "images/photos/panoramic/nefotografija_1654170319_2851709785253661388_1541845420.jpg",
+        "thumbnail": "images/photos/panoramic/nefotografija_1654170319_2851709785253661388_1541845420.jpg"
+      },
+      {
+        "id": "panoramic_2",
+        "title": "Panoramic #2",
+        "description": "Photo 2 from Panoramic",
+        "image": "images/photos/panoramic/nefotografija_1686015432_3118845961010083332_1541845420.jpg",
+        "thumbnail": "images/photos/panoramic/nefotografija_1686015432_3118845961010083332_1541845420.jpg"
+      },
+      {
+        "id": "panoramic_3",
+        "title": "Panoramic #3",
+        "description": "Photo 3 from Panoramic",
+        "image": "images/photos/panoramic/nefotografija_1708463724_3307155882900987713_1541845420.jpg",
+        "thumbnail": "images/photos/panoramic/nefotografija_1708463724_3307155882900987713_1541845420.jpg"
+      },
+      {
+        "id": "panoramic_4",
+        "title": "Panoramic #4",
+        "description": "Photo 4 from Panoramic",
+        "image": "images/photos/panoramic/nefotografija_1740345436_3574599063807026828_1541845420.jpg",
+        "thumbnail": "images/photos/panoramic/nefotografija_1740345436_3574599063807026828_1541845420.jpg"
+      }
+    ]
+  },
+  {
+    "type": "album",
+    "id": "street photography",
+    "title": "Street Photography",
+    "description": "out to get that deceisive moment",
+    "coverImage": "images/photos/street photography/10x7,14cm (7).jpg",
+    "date": "2025-07-28",
+    "tags": [
+      "photography",
+      "nature",
+      "landscape"
+    ],
+    "photos": [
+      {
+        "id": "street photography_1",
+        "title": "Street Photography #1",
+        "description": "Photo 1 from Street Photography",
+        "image": "images/photos/street photography/10x7,14cm (7).jpg",
+        "thumbnail": "images/photos/street photography/10x7,14cm (7).jpg"
+      },
+      {
+        "id": "street photography_2",
+        "title": "Street Photography #2",
+        "description": "Photo 2 from Street Photography",
+        "image": "images/photos/street photography/asdqwewqe.jpg",
+        "thumbnail": "images/photos/street photography/asdqwewqe.jpg"
+      },
+      {
+        "id": "street photography_3",
+        "title": "Street Photography #3",
+        "description": "Photo 3 from Street Photography",
+        "image": "images/photos/street photography/nefotografija_1694677742_3191510675955837498_1541845420.jpg",
+        "thumbnail": "images/photos/street photography/nefotografija_1694677742_3191510675955837498_1541845420.jpg"
+      },
+      {
+        "id": "street photography_4",
+        "title": "Street Photography #4",
+        "description": "Photo 4 from Street Photography",
+        "image": "images/photos/street photography/nefotografija_1745042556_3614001358927575705_1541845420.jpg",
+        "thumbnail": "images/photos/street photography/nefotografija_1745042556_3614001358927575705_1541845420.jpg"
+      },
+      {
+        "id": "street photography_5",
+        "title": "Street Photography #5",
+        "description": "Photo 5 from Street Photography",
+        "image": "images/photos/street photography/nefotografija_1747736546_3636600185094360998_1541845420.jpg",
+        "thumbnail": "images/photos/street photography/nefotografija_1747736546_3636600185094360998_1541845420.jpg"
+      }
+    ]
+  }
+]

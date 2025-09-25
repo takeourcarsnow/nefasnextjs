@@ -1,0 +1,137 @@
+/* Remove default anchor highlight for grid/home cards */
+a.grid-item:active, a.grid-item:focus, a.grid-item:hover,
+a.home-post-item:active, a.home-post-item:focus, a.home-post-item:hover {
+    background: none !important;
+    box-shadow: 0 0.5rem 2rem rgba(0, 255, 157, 0.2) !important;
+    outline: none !important;
+    border-color: var(--main-color) !important;
+    color: inherit;
+}
+/* --- [ GRID LAYOUTS FOR GALLERIES ] --- */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem; /* Extra space at bottom */
+    /* Performance optimizations */
+    contain: layout;
+}
+
+.grid-item {
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%; /* Ensure items can stretch */
+    /* Performance optimizations */
+    will-change: transform, border-color;
+    backface-visibility: hidden;
+}
+
+.grid-item:hover {
+    border-color: var(--main-color);
+    transform: translateY(-0.5rem) translateZ(0);
+    box-shadow: 0 0.5rem 2rem rgba(0, 255, 157, 0.2);
+}
+
+/* Styles for posts on the Home tab grid */
+.home-post-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.home-post-item .home-post-type {
+    font-size: 0.9em;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.home-post-item .home-post-title {
+    font-size: 1.1em;
+    color: var(--main-color);
+    text-shadow: 0 0 3px var(--glow-color);
+    margin-bottom: 15px;
+    flex-grow: 1; /* Allows title to take up space, pushing date/link down */
+}
+
+.home-post-item .home-post-date {
+    font-size: 0.8em;
+    opacity: 0.7;
+    margin-bottom: 15px;
+}
+
+.home-post-item .home-post-link {
+    font-weight: bold;
+    align-self: flex-start;
+}
+
+/* Photo gallery specific styles */
+.photo-item {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Ensure images are visible immediately */
+.grid-item img {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
+}
+
+.photo-item img {
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: grayscale(0) contrast(1.1);
+    opacity: 1;
+    display: block;
+}
+
+.photo-item:hover img {
+    transform: scale(1.05);
+    filter: grayscale(0) contrast(1.2);
+}
+
+.photo-item h3 {
+    color: var(--main-color);
+    font-size: 1.1em;
+    margin: 0 0 8px 0;
+    text-shadow: 0 0 3px var(--glow-color);
+}
+
+.photo-item p {
+    color: var(--text-color);
+    font-size: 0.9em;
+    line-height: 1.4;
+    margin: 0 0 12px 0;
+}
+
+.photo-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 10px;
+    border-top: 1px solid var(--border-color);
+}
+
+.photo-date {
+    font-size: 0.8em;
+    color: var(--secondary-color);
+}
+
+.photo-tags {
+    font-size: 0.8em;
+    color: var(--accent-color);
+    font-family: var(--mono-font);
+}
+
+/* Photo modal styles */
+.photo-modal {
+    backdrop-filter: blur(10px);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

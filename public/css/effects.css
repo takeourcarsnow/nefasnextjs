@@ -1,0 +1,134 @@
+.artifact-violet {
+    color: #ff00ff;
+    text-shadow: 0 0 2px var(--violet-color), 0 0 6px var(--violet-glow);
+}
+/* Consistent spacing for misc categories */
+.misc-thoughts p {
+    margin: 10px 0;
+    line-height: 1.6;
+}
+.artifacts-list .artifact-item,
+.status-log .status-item {
+    margin: 10px 0;
+}
+/* --- [ BACKGROUND & CRT EFFECT ] --- */
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9998;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            rgba(0,0,0,0.4),
+            rgba(0,0,0,0.4) 1px,
+            transparent 1px,
+            transparent 3px
+        );
+    /* Optimize scanlines animation */
+    /* will-change removed for performance: not needed for opacity flicker */
+    animation: flicker 0.1s infinite;
+    /* Use contain for better performance */
+    contain: strict;
+}
+
+/* Background grid effect */
+.bg-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -2;
+    background-image: 
+        linear-gradient(rgba(0, 255, 157, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 157, 0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: grid-pulse 12s ease-in-out infinite;
+    /* will-change removed for performance: not needed for grid pulse */
+    contain: strict;
+}
+
+
+/* CRT glow background effect */
+.matrix-rain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -2;
+    overflow: hidden;
+    contain: strict;
+}
+
+.crt-glow-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(0, 255, 157, 0.03) 0%,
+        rgba(0, 255, 157, 0.01) 40%,
+        transparent 70%
+    );
+    animation: crt-glow 4s ease-in-out infinite alternate;
+    contain: strict;
+}
+
+.crt-scan-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 255, 157, 0.02) 2px,
+        rgba(0, 255, 157, 0.02) 4px
+    );
+    animation: scan-lines 0.1s linear infinite;
+    contain: strict;
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    .scanlines,
+    .bg-grid,
+    .crt-glow-overlay,
+    .crt-scan-lines {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+}
+
+
+/* Site container breathing effect - removed to prevent footer layout issues */
+
+/* --- [ MISC ACCORDION ] --- */
+.misc-content h3 {
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.2s;
+}
+.misc-content h3:hover {
+    color: var(--main-color, #00ff9d);
+}
+.misc-content .accordion-expanded {
+    max-height: 500px !important;
+    transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1);
+    overflow: hidden;
+}
+.misc-content .accordion-collapsed {
+    max-height: 0 !important;
+    transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1);
+    overflow: hidden;
+}

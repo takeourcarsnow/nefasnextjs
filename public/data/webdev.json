@@ -1,0 +1,62 @@
+[
+  {
+    "id": "PasakAI",
+    "title": "PasakAI.lt",
+    "description": "Interactive storytelling platform for Lithuanian folk tales",
+    "image": "images/webdev/pasakai.jpg",
+    "thumbnail": "images/webdev/thumbnails/pasakai.jpg",
+    "url": "https://pasakai.lt",
+    "date": "2025-07-31",
+    "tags": ["webdev", "storytelling", "interactive", "lithuanian"]
+  },
+  {
+    "id": "InHaiku",
+    "title": "InHaiku.lt", 
+    "description": "AI-powered haiku generator with minimalist aesthetics",
+    "image": "images/webdev/inhaiku.jpg",
+    "thumbnail": "images/webdev/thumbnails/inhaiku.jpg",
+    "url": "https://inhaiku.lt",
+    "date": "2025-07-28",
+    "tags": ["webdev", "haiku", "ai", "minimalism"]
+  },
+  {
+    "id": "particles",
+    "title": "Particles.lt",
+    "description": "Interactive particle physics playground for digital experimentation",
+    "image": "images/webdev/particles.jpg",
+    "thumbnail": "images/webdev/thumbnails/particles.jpg", 
+    "url": "https://particles.lt",
+    "date": "2025-07-25",
+    "tags": ["webdev", "particles", "physics", "interactive"]
+  },
+  {
+    "id": "drummachine",
+    "title": "DrumMachine.art",
+    "description": "Web-based drum machine for creating beats in your browser",
+    "image": "images/webdev/drummachine.jpg",
+    "thumbnail": "images/webdev/thumbnails/drummachine.jpg",
+    "url": "https://drummachine.art", 
+    "date": "2025-07-22",
+    "tags": ["webdev", "music", "drums", "audio"]
+  },
+  {
+    "id": "greentext",
+    "title": "Greentext.fun",
+    "description": "Anonymous greentext story sharing platform",
+    "image": "images/webdev/greentext.jpg",
+    "thumbnail": "images/webdev/thumbnails/greentext.jpg",
+    "url": "https://greentext.fun",
+    "date": "2025-07-19",
+    "tags": ["webdev", "social", "anonymous", "stories"]
+  },
+  {
+    "id": "asciid",
+    "title": "AsciiD.art",
+    "description": "Convert images to ASCII art with customizable parameters",
+    "image": "images/webdev/asciid.jpg",
+    "thumbnail": "images/webdev/thumbnails/asciid.jpg",
+    "url": "https://asciid.art",
+    "date": "2025-07-16",
+    "tags": ["webdev", "ascii", "art", "converter"]
+  }
+]

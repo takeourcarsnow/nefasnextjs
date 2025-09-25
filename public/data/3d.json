@@ -1,0 +1,44 @@
+[
+  {
+    "id": "neon-cube",
+    "title": "Waves",
+    "description": "classic c4d displacement action",
+    "image": "images/3d/neon-cube/1.jpg",
+    "thumbnail": "images/3d/neon-cube/1.jpg",
+    "date": "2025-08-01",
+    "tags": [
+      "3d",
+      "render",
+      "c4d",
+      "abstract"
+    ]
+  },
+  {
+    "id": "synthwave-landscape",
+    "title": "Tasty Splines",
+    "description": "soft body + splines = fun",
+    "image": "images/3d/synthwave-landscape/1.jpg",
+    "thumbnail": "images/3d/synthwave-landscape/1.jpg",
+    "date": "2025-07-30",
+    "tags": [
+      "3d",
+      "c4d",
+      "render",
+      "abstract"
+    ]
+  },
+  {
+    "id": "digital-decay",
+    "title": "Wired",
+    "description": "some houdini experiments",
+    "image": "images/3d/digital-decay/1.jpg",
+    "thumbnail": "images/3d/digital-decay/1.jpg",
+    "date": "2025-07-27",
+    "tags": [
+      "3d",
+      "houdini",
+      "abstract",
+      "glitch"
+    ]
+  }
+]

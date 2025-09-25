@@ -1,0 +1,112 @@
+/* --- [ MOBILE NAVIGATION VISIBILITY FIX ] --- */
+/* This file contains specific fixes for mobile navigation visibility issues */
+
+/* Force navigation visibility on all devices */
+#main-nav {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 1000 !important;
+}
+
+#main-nav a {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: var(--main-color) !important;
+}
+
+/* Mobile-specific fixes */
+@media (max-width: 768px) {
+    #main-nav {
+        /* Prevent navigation from being hidden by other elements */
+        transform: none !important;
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        /* Ensure proper stacking */
+        isolation: isolate;
+        /* Fix potential flex issues */
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        align-items: center !important;
+        /* Prevent overflow hiding */
+        overflow: visible !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        /* Add background for better visibility */
+        background-color: transparent;
+        padding: 10px 0;
+        margin: 10px 0;
+    }
+    
+    #main-nav a {
+        /* Ensure touch targets are adequate */
+        min-height: 44px !important;
+        min-width: 44px !important;
+        /* Prevent text from being cut off */
+        white-space: nowrap !important;
+        /* Keep desktop styling - no visible border */
+        border: 1px solid transparent !important;
+        /* Ensure proper spacing - symmetric margins for visual balance */
+        margin: 6px 4px !important;
+        /* Force proper display */
+        flex-shrink: 0 !important;
+        /* Better text visibility */
+        text-shadow: 0 0 3px rgba(0, 0, 0, 0.8) !important;
+        /* Consistent padding for even spacing */
+        padding: 8px 12px !important;
+        /* Ensure proper vertical alignment */
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    #main-nav a.active,
+    #main-nav a:hover,
+    #main-nav a:focus {
+        background-color: var(--main-color) !important;
+        color: var(--bg-color) !important;
+        border: 1px solid transparent !important;
+        text-shadow: none !important;
+        /* Ensure text is visible and bold */
+        font-weight: bold !important;
+        /* Ensure consistent spacing for active state - match regular state */
+        margin: 6px 4px !important;
+        padding: 8px 12px !important;
+        /* Ensure proper vertical alignment for highlighted state */
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+}
+
+/* Fix for very small screens */
+@media (max-width: 480px) {
+    #main-nav {
+        font-size: 0.9rem !important;
+        gap: 0.3rem !important;
+    }
+    
+    #main-nav a {
+        padding: 4px 6px !important;
+        font-size: 0.85rem !important;
+    }
+}
+
+/* Fix for orientation changes */
+@media (orientation: landscape) and (max-height: 500px) {
+    #main-nav {
+        font-size: 0.8rem !important;
+        margin: 5px 0 !important;
+        gap: 0.2rem !important;
+    }
+    
+    #main-nav a {
+        padding: 3px 5px !important;
+        min-height: 32px !important;
+    }
+}

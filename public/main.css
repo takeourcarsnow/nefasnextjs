@@ -1,0 +1,35 @@
+/* Main CSS file - imports all component stylesheets */
+
+/* Core styles first */
+@import './css/variables.css';
+@import './css/base.css';
+@import './css/animations.css';
+
+/* Layout and structure */
+@import './css/layout.css';
+@import './css/header.css';
+@import './css/navigation.css';
+@import './css/footer.css';
+
+/* Components */
+@import './css/terminal.css';
+@import './css/grid.css';
+@import './css/blog.css';
+@import './css/blog-animations.css';
+@import './css/links.css';
+@import './css/sections.css';
+@import './css/modal.css';
+@import './css/winamp.css';
+
+/* Effects and responsive */
+@import './css/effects.css';
+@import './css/preloader.css';
+@import './css/responsive.css';
+@import './css/mobile-nav-fix.css';
+
+/* Ensure all images in the home section are always visible (override after all imports) */
+#home-content img {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+}

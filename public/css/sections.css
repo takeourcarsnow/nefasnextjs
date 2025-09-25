@@ -1,0 +1,43 @@
+/* --- [ CONTENT SECTIONS ] --- */
+
+/* Video Section */
+.video-embed iframe {
+    width: 100%;
+    height: 200px;
+    border: none;
+}
+
+.video-caption {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #ccc;
+}
+
+/* 3D Section */
+.d3-item { 
+    cursor: pointer; 
+}
+
+.d3-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    background-color: #111;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.d3-caption {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #ccc;
+}
+
+/* WebDev Section */
+.webdev-item h3 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    color: var(--secondary-color);
+}

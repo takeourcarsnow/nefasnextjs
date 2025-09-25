@@ -1,0 +1,66 @@
+/* --- [ NAVIGATION ] --- */
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem; /* Convert to rem for consistency */
+    margin-bottom: 30px;
+    font-size: 1.8rem; /* Use rem instead of em */
+    /* Ensure nav stays in place */
+    flex-shrink: 0;
+    flex-grow: 0;
+    position: relative;
+    z-index: 99;
+    /* Mobile-friendly defaults */
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
+}
+
+nav a {
+    cursor: pointer;
+    padding: 1rem 1.5rem; /* Convert to rem */
+    color: var(--main-color);
+    border: 1px solid transparent;
+    /* Ensure proper display */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    /* Prevent text from disappearing */
+    min-height: 1.5em;
+    line-height: 1.4;
+    /* Better touch targets for mobile */
+    min-width: 4.4rem; /* Convert to rem and ensure consistent with mobile */
+    text-align: center;
+    font-size: 1.8rem; /* Explicit font size */
+    /* Fallback colors */
+    background-color: transparent;
+    /* Prevent invisible text */
+    opacity: 1;
+    visibility: visible;
+}
+
+nav a.active, nav a:hover {
+    background-color: var(--main-color) !important;
+    color: #000000 !important;
+    text-shadow: none !important;
+    border-color: var(--main-color);
+    /* Ensure text is visible on green background */
+    font-weight: bold !important;
+    /* Force text color to be dark and visible */
+    text-decoration: none !important;
+    /* Override any inherited colors */
+    background: var(--main-color) !important;
+}
+
+/* Higher specificity rules for #main-nav */
+#main-nav a.active, #main-nav a:hover {
+    background-color: var(--main-color) !important;
+    color: #000000 !important;
+    text-shadow: none !important;
+    border-color: var(--main-color) !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+    background: var(--main-color) !important;
+}

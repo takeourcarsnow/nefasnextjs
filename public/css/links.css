@@ -1,0 +1,57 @@
+/* --- [ LINKS SECTION STYLES ] --- */
+.links-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.link-item {
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    transition: all 0.3s ease;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.link-item:hover {
+    border-color: var(--main-color);
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px var(--glow-color);
+}
+
+.link-item a {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.link-item a:hover {
+    background: none;
+    color: inherit;
+    text-shadow: none;
+}
+
+.link-title {
+    color: var(--secondary-color);
+    font-weight: bold;
+    font-size: 1.1em;
+    text-shadow: 0 0 3px var(--secondary-glow);
+}
+
+.link-description {
+    color: var(--main-color);
+    font-size: 0.95em;
+    opacity: 0.9;
+    line-height: 1.4;
+}
+
+.link-item:hover .link-title {
+    color: var(--main-color);
+    text-shadow: 0 0 5px var(--glow-color);
+}
+
+.link-item:hover .link-description {
+    opacity: 1;
+}

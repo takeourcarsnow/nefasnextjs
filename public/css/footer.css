@@ -1,0 +1,82 @@
+/* --- [ FOOTER ] --- */
+footer {
+    padding: 1rem 0;
+    border-top: 1px solid var(--main-color);
+    /* Footer at bottom of site-container */
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999; /* Ensure it's above all other elements */
+    width: 100%;
+    min-height: 60px;
+    margin-top: auto; /* Push to bottom of flex container */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'VT323', monospace;
+    font-size: 1.2rem;
+    color: var(--main-color);
+    text-shadow: 0 0 0.5rem var(--glow-color);
+    /* Ensure footer content is always visible */
+    min-height: 40px;
+    width: 100%;
+    max-width: 100rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-timestamp {
+    color: #666;
+    font-size: 1rem;
+}
+
+.footer-status {
+    color: var(--accent-color);
+    animation: pulse 2s infinite;
+}
+
+.footer-copyright {
+    color: var(--main-color);
+}
+
+.footer-terminal {
+    color: #888;
+    font-style: italic;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+/* Mobile responsiveness for footer */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+        padding: 0.5rem;
+    }
+    
+    .footer-left,
+    .footer-center,
+    .footer-right {
+        justify-content: center;
+    }
+    
+    footer {
+        min-height: auto; /* Allow the footer to grow with content on mobile */
+    }
+}

@@ -1,0 +1,46 @@
+fix terminal windows margins (theres like an invisible extra line after last one on screen in terminal write on text)
+
+add content management dashboard that could upload straight to github
+
+DONE improve writing in terminals
+
+add more content and proper captions to 3d section
+
+few more blog entries
+
+finish integrating shoutbox
+
+add about me section
+
+add interactive chatbot section 
+
+DONE make logo and add it to favico
+
+DONE learn to use source control
+
+---------------
+DONE improve preloader 
+
+DONE fix extra empty lines in terminal 
+
+DONE make sure latest posts in homepage always appear in horizontal grid, now it resets after going to other tab and coming back to home tab
+
+DONE in 3d and webdev tabs there shouldnt be a vertical scrollbar until it is needed, now it appears instantly
+
+DONE blog posts appear instantly, they must appear only after the terminal text of blog section is finished writing 
+
+DONE add a footer
+
+DONE improve header
+
+DONE add background animation
+
+DONE improve music player
+
+DONE improve misc section by adding more content (like interesting links etc)
+
+DONE improve text content in the webpage (some text in terminal is identical to static text in the sections, no need to repeat same lines twice, change one of each so its not identical)
+
+DONE improve rendering on phone because i.e. terminal write on text  goes out of frame
+
+DONE content appearing before finishing typing terminal text

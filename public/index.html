@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Failsafe: Force dark background on all devices -->
+    <style>
+      html, body {
+        background: linear-gradient(135deg, #0a0a0a 0%, #0a0a0f 25%, #0a0a0a 50%, #0f0a0f 75%, #0a0a0a 100%) !important;
+        background-color: #0a0a0a !important;
+        color: #00ff9d !important;
+      }
+    </style>
+    <title>nefas.tv - VISUALS, VIBES & VARIOUS EXPERIMENTS</title>
+    
+    <!-- Favicon -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    
+    <!-- Preconnect and font loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/css/photo-modal.css">
+    <base href="/">
+    <link rel="modulepreload" href="/js/main.js">
+    <!-- Remove duplicate dns-prefetch and unnecessary preconnects -->
+</head>
+<body>
+    <body style="background:linear-gradient(135deg,#0a0a0a 0%,#0a0a0f 25%,#0a0a0a 50%,#0f0a0f 75%,#0a0a0a 100%) !important;background-color:#0a0a0a !important;color:#00ff9d !important;">
+
+    <div id="preloader" class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-logo-wrapper">
+                <img src="images/logo.svg" alt="nefas.tv logo" class="preloader-logo">
+            </div>
+            <pre id="preloader-text"></pre>
+        </div>
+    </div>
+
+    <!-- Background Effects -->
+    <div class="bg-grid"></div>
+    <div class="scanlines"></div>
+
+    <div class="site-container">
+        <header>
+            <h1 id="home-header-jump"><span id="ascii-header"></span> nefas.tv <span id="ascii-header-right"></span></h1>
+            
+            <div class="scrolling-text-container">
+                <div class="scrolling-text">
+                    <span class="scroll-content">● MY CORNER OF THE DIGITAL VOID ● VISUALS, VIBES & VARIOUS EXPERIMENTS ● WATCH ● READ ● CLICK ●</span>
+                </div>
+            </div>
+            
+            <!-- MUSIC PLAYER -->
+            <div id="winamp">
+                <div class="winamp-song-info">
+                    <span id="winamp-song-title">Loading...</span>
+                </div>
+                <div class="winamp-controls">
+                    <button class="winamp-btn" id="prev-btn">⏮</button>
+                    <button class="winamp-btn" id="play-btn">▶</button>
+                    <button class="winamp-btn" id="pause-btn">⏸</button>
+                    <button class="winamp-btn" id="stop-btn">⏹</button>
+                    <button class="winamp-btn" id="next-btn">⏭</button>
+                    <span id="winamp-time">00:00</span>
+                    <div class="winamp-visualizer" id="winamp-visualizer"></div>
+                </div>
+            </div>
+        </header>
+
+        <nav id="main-nav">
+            <a data-section="home-content" class="active">[ home ]</a>
+            <a data-section="video-content">[ video ]</a>
+            <a data-section="photo-content">[ photo ]</a>
+            <a data-section="3d-content">[ 3d ]</a>
+            <a data-section="webdev-content">[ webdev ]</a>
+            <a data-section="blog-content">[ blog ]</a>
+            <a data-section="misc-content">[ misc ]</a>
+        </nav>
+
+        <main id="content-area">
+
+            <!-- HOME SECTION -->
+            <div id="home-content" class="content-section">
+                <div id="terminal-output"></div>
+                
+                <!-- Latest Webdev Section -->
+                <h3 class="decrypt-text home-jump-tab" style="margin-top: 40px; margin-bottom: 5px; visibility: hidden; cursor:pointer;" data-original-text="> latest web stuff" data-jump-section="webdev-content" title="Go to Webdev tab"></h3>
+                <p class="typewriter-text" style="margin-bottom: 20px; color: #00ff9d; visibility: hidden;" data-original-text="building and hoping that it just works"></p>
+                <div id="home-webdev-grid" class="grid-container"></div>
+                
+                <!-- Latest Photos Section -->
+                <h3 class="decrypt-text home-jump-tab" style="margin-top: 40px; margin-bottom: 5px; visibility: hidden; cursor:pointer;" data-original-text="> fresh photos" data-jump-section="photo-content" title="Go to Photo tab"></h3>
+                <p class="typewriter-text" style="margin-bottom: 20px; color: #00ff9d; visibility: hidden;" data-original-text="megapixels and emulsion"></p>
+                <div id="home-photos-grid" class="grid-container"></div>
+                
+                <!-- Latest 3D Section -->
+                <h3 class="decrypt-text home-jump-tab" style="margin-top: 40px; margin-bottom: 5px; visibility: hidden; cursor:pointer;" data-original-text="> new renders" data-jump-section="3d-content" title="Go to 3D tab"></h3>
+                <p class="typewriter-text" style="margin-bottom: 20px; color: #00ff9d; visibility: hidden;" data-original-text="fresh cgi right off the gpu"></p>
+                <div id="home-3d-grid" class="grid-container"></div>
+                
+                <!-- Latest Videos Section -->
+                <h3 class="decrypt-text home-jump-tab" style="margin-top: 40px; margin-bottom: 5px; visibility: hidden; cursor:pointer;" data-original-text="> latest videos" data-jump-section="video-content" title="Go to Video tab"></h3>
+                <p class="typewriter-text" style="margin-bottom: 20px; color: #00ff9d; visibility: hidden;" data-original-text="a collection of moving pictures. i'll replace these with my own stuff eventually. probably.
+
+"></p>
+                <div id="home-videos-grid" class="grid-container"></div>
+                
+                <!-- Latest Blogs Section -->
+                <h3 class="decrypt-text home-jump-tab" style="margin-top: 40px; margin-bottom: 5px; visibility: hidden; cursor:pointer;" data-original-text="> recent blogs" data-jump-section="blog-content" title="Go to Blog tab"></h3>
+                <p class="typewriter-text" style="margin-bottom: 20px; color: #00ff9d; visibility: hidden;" data-original-text="fresh thoughts for your brain"></p>
+                <div id="home-blogs-grid" class="grid-container"></div>
+            </div>
+
+            <!-- VIDEO SECTION -->
+            <div id="video-content" class="content-section">
+                <h2>> video feed</h2>
+                <p>a collection of moving pictures to rot your brain. i'll replace these with my own stuff eventually. probably.</p>
+                <div id="video-gallery" class="grid-container">
+                    <!-- Videos will be loaded dynamically by JavaScript -->
+                </div>
+            </div>
+
+            <!-- PHOTO SECTION -->
+            <div id="photo-content" class="content-section">
+                <h2>> photography</h2>
+                <p>i point my camera at things. mostly around the streets.</p>
+                <div style="margin-top:32px;text-align:center;">
+                    <h3 style="color:#00ff9d; text-align:center;">My Instagram Feed,<br>double-tap to boost my dopamine levels.</h3>
+                    <div style="display:flex; justify-content:center;">
+                        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/nefotografija/" data-instgrm-version="14" style="background:#fff; border:0; margin: 1em auto; max-width:540px; width:100%; min-width:326px;">
+                            <a href="https://www.instagram.com/nefotografija/" target="_blank" rel="noopener" style="color:#125688; font-weight:bold;">View on Instagram</a>
+                        </blockquote>
+                    </div>
+                    <script async src="https://www.instagram.com/embed.js"></script>
+                </div>
+                <div id="photo-gallery" class="grid-container">
+                    <!-- Photos will be loaded here by JavaScript -->
+                </div>
+            </div>
+
+            <!-- 3D SECTION -->
+            <div id="3d-content" class="content-section">
+                <h2>> 3D stuff</h2>
+                <p>some abstract pixel statues i cooked up in blender, c4d, and houdini. it's mostly shiny spheres and particle nonsense. click to expand</p>
+                <div id="3d-gallery" class="grid-container">
+                    <!-- 3D renders will be loaded dynamically -->
+                </div>
+            </div>
+            
+            <!-- WEBDEV SECTION -->
+            <div id="webdev-content" class="content-section">
+                <h2>> webdev projects</h2>
+                <p>i occasionally write code that gets deployed to the internet. no startup grind, no VC buzzwords — just late-night commits and whatever felt fun to build.</p>
+                <div id="webdev-projects-grid" class="grid-container"></div>
+            </div>
+
+            <!-- BLOG SECTION -->
+            <div id="blog-content" class="content-section">
+                <!-- Blog posts will be rendered here by blog.js -->
+            </div>
+
+            <!-- MISC SECTION -->
+            <div id="misc-content" class="content-section">
+                <h2>> misc</h2>
+                <p>a digital shoebox for things that don't fit anywhere else. links, files, random thoughts. check back once in a while.</p>
+                
+                <h3 style="margin-top: 40px; margin-bottom: 20px; color: var(--secondary-color);">>> interesting links</h3>
+                <div class="links-container"></div>
+
+                <h3 style="margin-top: 40px; margin-bottom: 20px; color: var(--secondary-color);">>> random thoughts</h3>
+                <div class="misc-thoughts"></div>
+
+                <h3 style="margin-top: 40px; margin-bottom: 20px; color: var(--secondary-color);">>> digital artifacts</h3>
+                <div class="artifacts-list">
+                    <!-- Artifacts will be loaded dynamically -->
+                </div>
+
+                <h3 style="margin-top: 40px; margin-bottom: 20px; color: var(--secondary-color);">>> status updates</h3>
+                <div class="status-log">
+                    <!-- Status updates will be loaded dynamically -->
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-left">
+                    <span class="footer-timestamp" id="footer-timestamp"></span>
+                    <span class="footer-status">[ ONLINE ]</span>
+                </div>
+                <div class="footer-center">
+                    <span class="footer-copyright">© 2025 nefas.tv</span>
+                </div>
+                <div class="footer-right">
+                    <span class="footer-terminal">terminal_active.exe</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- 3D IMAGE MODAL -->
+    <div id="image-modal">
+        <span class="close-modal">&#10005;</span>
+        <div class="modal-content">
+            <img id="modal-img" src="">
+            <div id="modal-caption"></div>
+        </div>
+    </div>
+    <audio id="audio-player" src="audio/vaporwave.mp3"></audio>
+    <!-- Move non-critical scripts to end of body for better performance -->
+    <script type="module" src="/js/main.js" defer></script>
+    <script src="/js/modules/webdev-click.js" defer></script>
+    <script src="/js/modules/webdev.js" defer></script>
+</body>
+</html>

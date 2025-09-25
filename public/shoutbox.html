@@ -1,0 +1,37 @@
+<!-- Simple Shoutbox UI -->
+<div id="shoutbox" style="max-width:400px;margin:2em auto;padding:1em;border:1px solid #ccc;background:#222;color:#fff;border-radius:8px;">
+  <h3 style="margin-top:0;">Shoutbox</h3>
+  <div id="shoutbox-messages" style="max-height:200px;overflow-y:auto;margin-bottom:1em;background:#111;padding:0.5em;border-radius:4px;"></div>
+  <form id="shoutbox-form" autocomplete="off" style="display:flex;gap:0.5em;flex-wrap:wrap;">
+    <input type="text" id="shoutbox-name" placeholder="Name" maxlength="32" required style="flex:1;min-width:80px;" />
+    <input type="text" id="shoutbox-message" placeholder="Message" maxlength="256" required style="flex:2;min-width:120px;" />
+    <button type="submit" style="flex:0 0 auto;">Send</button>
+  </form>
+</div>
+<script>
+async function fetchMessages() {
+  const res = await fetch('/api/shoutbox');
+  const msgs = await res.json();
+  const box = document.getElementById('shoutbox-messages');
+  box.innerHTML = msgs.map(m => `<div style='margin-bottom:0.5em;'><b>${escapeHtml(m.name)}</b>: ${escapeHtml(m.message)}<br><span style='font-size:0.8em;color:#aaa;'>${new Date(m.time).toLocaleTimeString()}</span></div>`).join('');
+  box.scrollTop = box.scrollHeight;
+}
+function escapeHtml(str) {
+  return str.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[c]));
+}
+document.getElementById('shoutbox-form').onsubmit = async function(e) {
+  e.preventDefault();
+  const name = document.getElementById('shoutbox-name').value.trim();
+  const message = document.getElementById('shoutbox-message').value.trim();
+  if (!name || !message) return;
+  await fetch('/api/shoutbox', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name, message })
+  });
+  document.getElementById('shoutbox-message').value = '';
+  fetchMessages();
+};
+setInterval(fetchMessages, 4000);
+fetchMessages();
+</script>

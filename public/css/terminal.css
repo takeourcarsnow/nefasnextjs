@@ -1,0 +1,73 @@
+/* --- [ TERMINAL OUTPUT ] --- */
+
+/* Main terminal output */
+#terminal-output {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1.2rem 1.5rem 0.5rem 1.5rem;
+    border: 1px solid var(--border-color);
+}
+
+/* Apply base styles to both terminals */
+#terminal-output,
+#blog-terminal-output {
+    font-family: 'VT323', monospace;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 2rem;
+    line-height: 1.4;
+}
+
+/* Combined empty state handling */
+.terminal-output:empty,
+#terminal-output:empty {
+    display: none;
+    height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Optimized terminal line styling */
+.terminal-line {
+    margin: 0.2em 0;
+    line-height: 1.35;
+    white-space: pre-wrap;
+    word-spacing: normal;
+}
+
+/* Remove extra margin from last terminal line */
+.terminal-line:last-child {
+    margin-bottom: 0;
+}
+
+/* Cursor styling for typing animation */
+.terminal-cursor {
+    display: inline;
+    vertical-align: baseline;
+}
+
+@keyframes cursor-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Blog terminal - extends base with specific overrides */
+#blog-terminal-output {
+    background: transparent;
+    padding: 1.5rem;
+    border: none;
+    line-height: 2.6; /* Even more gap */
+}
+
+/* Reset spacing for blog terminal content */
+#blog-terminal-output pre, 
+#blog-terminal-output div, 
+#blog-terminal-output span {
+    margin: 0;
+    padding: 0;
+    line-height: inherit;
+}
+#blog-terminal-output .terminal-line {
+    margin-bottom: 0.3em !important; /* Small gap */
+    line-height: 1.3 !important;
+}

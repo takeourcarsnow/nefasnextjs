@@ -1,0 +1,77 @@
+/* --- [ BLOG STYLES ] --- */
+.blog-snippet {
+    margin-bottom: 30px;
+    background: rgba(0,0,0,0.2);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 0 8px var(--glow-color);
+}
+
+.blog-snippet-header {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.blog-date {
+    font-size: 0.95em;
+    color: var(--secondary-color);
+    margin-right: 10px;
+    opacity: 0.8;
+}
+
+.blog-tags {
+    margin-top: 4px;
+}
+
+.blog-tag {
+    display: inline-block;
+    background: var(--secondary-color);
+    color: var(--bg-color);
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 0.85em;
+    margin-right: 4px;
+    margin-bottom: 2px;
+    box-shadow: 0 0 4px var(--secondary-glow);
+}
+
+.blog-toggle {
+    color: var(--main-color);
+    font-size: 0.95em;
+    margin-top: 4px;
+    cursor: pointer;
+}
+
+.blog-full-content {
+    margin-top: 10px;
+    padding-left: 8px;
+}
+
+/* Alternative blog styles from later in original file */
+.blog-snippet {
+    border: 1px solid var(--border-color);
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+.blog-snippet-header {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.blog-snippet-header h3 { 
+    font-size: 1.3em; 
+    margin: 0; 
+}
+
+.blog-full-content {
+    display: none;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed var(--border-color);
+}

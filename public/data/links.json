@@ -1,0 +1,8 @@
+[
+  {"title": "[INTERNET ARCHIVE]", "url": "https://archive.org", "desc": "digital preservation of our collective memory"},
+  {"title": "[NEAL.FUN]", "url": "https://neal.fun", "desc": "interactive experiments that remind you the web can be fun"},
+  {"title": "[THE USELESS WEB]", "url": "https://theuselessweb.com", "desc": "random pointless websites, like the old days"},
+  {"title": "[OLD REDDIT]", "url": "https://old.reddit.com", "desc": "before they ruined everything with corporate UX"},
+  {"title": "[WIBY]", "url": "https://wiby.me", "desc": "search engine for the classic web"},
+  {"title": "[HACKER TOOLS]", "url": "https://hacker-tools.github.io", "desc": "MIT course on command line, vim, git, and other essentials"}
+]

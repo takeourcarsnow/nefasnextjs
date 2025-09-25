@@ -1,0 +1,161 @@
+/* --- [ RESPONSIVE DESIGN ] --- */
+@media (max-width: 600px) {
+  #terminal-output {
+    font-size: 1.4rem;
+    overflow-x: auto;
+    padding: 1.2rem;
+    word-break: break-word;
+  }
+  .terminal-line {
+    white-space: pre-line;
+    word-break: break-word;
+    font-size: 1.4rem;
+  }
+  
+  .site-container {
+    padding: 1rem;
+  }
+  
+  .grid-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  /* Fixed navigation for mobile */
+  nav {
+    font-size: 1.6rem; /* Use consistent rem units */
+    gap: 1rem;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 20px;
+    /* Ensure visibility */
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative;
+    z-index: 1000;
+  }
+  
+  /* Ensure nav links are visible and properly sized */
+  nav a {
+    display: inline-block !important;
+    padding: 1rem 1.5rem; /* Use rem for consistent scaling */
+    min-width: 4.4rem; /* Convert to rem */
+    white-space: nowrap;
+    font-size: 1.6rem; /* Explicit size in rem */
+    color: var(--main-color) !important;
+    border: 1px solid transparent;
+    background-color: transparent;
+    text-decoration: none;
+    text-align: center;
+    line-height: 1.4;
+    /* Force visibility */
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  /* Active and hover states for mobile */
+  nav a.active,
+  nav a:hover {
+    background-color: var(--main-color) !important;
+    color: #000000 !important;
+    border-color: var(--main-color) !important;
+    font-weight: bold !important;
+    text-shadow: none !important;
+    background: var(--main-color) !important;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    letter-spacing: 0.2rem;
+  }
+  
+  #winamp {
+    width: 20rem;
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+@media (max-width: 400px) {
+  html {
+    font-size: 62.5%; /* Keep consistent base font size */
+  }
+  
+  .grid-item {
+    padding: 1rem;
+  }
+  
+  /* Extra small screen navigation fixes */
+  nav {
+    font-size: 1.4rem !important; /* Slightly smaller but still readable */
+    gap: 0.8rem !important;
+    padding: 0 0.5rem;
+  }
+  
+  nav a {
+    padding: 0.8rem 1.2rem !important;
+    font-size: 1.4rem !important; /* Explicit size */
+    min-height: 3.2rem; /* Convert to rem */
+    min-width: 4rem !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.4;
+    /* Ensure consistent margins */
+    margin: 0.3rem !important;
+  }
+  
+  .site-container {
+    padding: 0.5rem;
+  }
+}
+
+/* Additional fix for landscape orientation on mobile */
+@media (max-width: 800px) and (max-height: 500px) {
+  nav {
+    font-size: 1.4rem !important;
+    gap: 0.8rem !important;
+    margin-bottom: 15px;
+  }
+  
+  nav a {
+    padding: 0.6rem 1rem !important;
+    font-size: 1.4rem !important;
+  }
+}
+
+/* Additional breakpoint for zoom levels and tablet sizes */
+@media (max-width: 768px) {
+  nav {
+    font-size: 1.5rem !important;
+    gap: 0.9rem !important;
+  }
+  
+  nav a {
+    padding: 0.9rem 1.3rem !important;
+    font-size: 1.5rem !important;
+    min-width: 4.2rem !important;
+  }
+  
+  nav a.active,
+  nav a:hover {
+    background-color: var(--main-color) !important;
+    color: #000000 !important;
+    border-color: var(--main-color) !important;
+    font-weight: bold !important;
+    text-shadow: none !important;
+    background: var(--main-color) !important;
+  }
+
+}
+
+/* Force dark animated background on all devices, all viewports */
+html, body {
+  background: linear-gradient(135deg, var(--bg-color) 0%, #0a0a0f 25%, var(--bg-color) 50%, #0f0a0f 75%, var(--bg-color) 100%) !important;
+  background-size: 400% 400% !important;
+  animation: gradient-shift 20s ease infinite !important;
+  color: var(--main-color) !important;
+}
+}

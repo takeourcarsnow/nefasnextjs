@@ -1,0 +1,35 @@
+/* Extra styles for photo modal navigation and close button */
+.photo-modal .close-photo-modal {
+    position: fixed !important;
+    top: 32px !important;
+    right: 48px !important;
+    z-index: 10001 !important;
+}
+.photo-modal .prev-photo,
+.photo-modal .next-photo {
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background: rgba(0,0,0,0.4) !important;
+    border: none !important;
+    color: #fff !important;
+    font-size: 3em !important;
+    cursor: pointer !important;
+    position: absolute !important;
+    z-index: 10000 !important;
+    padding: 0 16px !important;
+    border-radius: 8px !important;
+}
+.photo-modal .prev-photo {
+    left: -70px !important;
+    border-radius: 8px 0 0 8px !important;
+}
+.photo-modal .next-photo {
+    right: -70px !important;
+    border-radius: 0 8px 8px 0 !important;
+}
+.photo-modal .modal-photo-img {
+    max-width: 100vw !important;
+    max-height: 80vh !important;
+    object-fit: contain !important;
+    border-radius: 6px !important;
+}

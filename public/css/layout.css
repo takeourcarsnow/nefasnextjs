@@ -1,0 +1,68 @@
+/* --- [ MAIN LAYOUT ] --- */
+.site-container {
+    max-width: 100rem;
+    margin: 0 auto;
+    padding: 2rem;
+    padding-bottom: 0; /* Remove bottom padding since footer handles spacing */
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    animation: fadeIn 1s 2.5s forwards; /* Delay matches preloader */
+    min-height: 100vh; /* Full height */
+    scrollbar-width: thin;
+    scrollbar-color: var(--main-color) var(--bg-color);
+    /* Performance optimizations */
+    will-change: opacity, transform;
+    contain: layout style paint;
+    position: relative; /* Establish positioning context */
+    display: flex;
+    flex-direction: column;
+}
+
+.site-container::-webkit-scrollbar { 
+    width: 0.8rem; 
+}
+
+.site-container::-webkit-scrollbar-track { 
+    background: var(--bg-color); 
+}
+
+.site-container::-webkit-scrollbar-thumb { 
+    background-color: var(--main-color); 
+    border-radius: 0.4rem;
+}
+
+main {
+    /* Prevent layout shifts */
+    position: relative;
+    min-height: 0; /* Allow flex shrinking */
+    flex: 1; /* Take up remaining space */
+    padding-bottom: 2rem; /* Add padding for bottom spacing */
+}
+
+/* Force hide content during typing animation */
+.typing-in-progress > *:not(.terminal-output) {
+    display: none !important;
+    opacity: 0 !important;
+}
+
+/* Smooth transition when typing completes */
+.content-section > *:not(.terminal-output) {
+    transition: opacity 0.3s ease;
+}
+
+/* --- [ CONTENT SECTIONS ] --- */
+.content-section {
+    display: block;
+    padding: 20px;
+    padding-bottom: 4rem; /* Extra space before footer */
+    border: 1px solid var(--border-color);
+    animation: content-fade-in 0.5s ease;
+    /* Prevent layout shifts during content loading */
+    position: relative;
+    box-sizing: border-box;
+}
+
+.content-section p {
+    line-height: 1.6;
+    margin-bottom: 1em;
+}

@@ -1,0 +1,87 @@
+/* --- [ BASE & RESET ] --- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%; /* 1rem = 10px for easier calculations */
+    scroll-behavior: smooth;
+    height: 100%;
+}
+
+body {
+    background: 
+        linear-gradient(135deg, 
+            var(--bg-color) 0%, 
+            #0a0a0f 25%, 
+            var(--bg-color) 50%, 
+            #0f0a0f 75%, 
+            var(--bg-color) 100%);
+    background-size: 400% 400%;
+    animation: gradient-shift 20s ease infinite;
+    color: var(--main-color);
+    font-family: var(--font);
+    font-size: 1.8rem; /* 18px */
+    line-height: 1.6;
+    overflow: hidden; /* Initially hidden to prevent scrollbar during preloader */
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%2300ff9d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l16 16m0-16L4 20"/></svg>') 12 12, auto;
+    /* Enable hardware acceleration for better performance */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeSpeed;
+    height: 100%;
+    min-height: 100vh;
+    position: relative; /* Establish positioning context */
+}
+
+/* Enable scrolling after preloader */
+body.preloader-complete {
+    overflow-x: hidden; /* Only hide horizontal scrollbar */
+    overflow-y: auto; /* Explicitly allow vertical scrolling */
+}
+
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    /* Optimize for performance */
+    will-change: transform, color, background-color;
+}
+
+a:hover {
+    background-color: var(--secondary-color);
+    color: var(--bg-color);
+    text-shadow: 0 0 1rem #fff;
+    transform: translateZ(0); /* Force hardware acceleration */
+}
+
+/* Use optimized text shadow for headers */
+h1, h2, h3 {
+    text-shadow: 0 0 0.5rem var(--glow-color);
+    will-change: text-shadow;
+}
+
+/* Ensure all images are visible by default */
+img {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+h1 { 
+    font-size: 2.5rem; 
+    letter-spacing: 0.4rem; 
+}
+
+h2 { 
+    font-size: 1.8rem; 
+    margin-bottom: 2rem; 
+    border-bottom: 1px solid var(--border-color); 
+    padding-bottom: 1rem; 
+}
